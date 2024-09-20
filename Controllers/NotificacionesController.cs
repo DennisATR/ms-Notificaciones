@@ -14,7 +14,7 @@ public class NotificacionesController : ControllerBase
     [HttpPost]
    public async Task<IActionResult> EnviarCorreo(ModeloCorreo datos)
    {
-            var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+            var apiKey = Environment.GetEnvironmentVariable("SENGRID_API_KEY");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("dennis.tisalema2024001@gmail.com", "Dennis Tisalema");
             var subject = datos.asuntoCorreo;
@@ -23,13 +23,15 @@ public class NotificacionesController : ControllerBase
             var htmlContent = datos.contenidoCorreo;
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
-            if(response.StatusCode == System.Net.HttpStatusCode.OK)
+            
+            if(response.StatusCode == System.Net.HttpStatusCode.Accepted)
             {
                 return Ok("Correo enviado correctamente" + datos.correoDestino);
             }
             else
             {
-                return BadRequest("No se pudo enviar el correo a la dirección: " + datos.correoDestino);
+                var responseBody = await response.Body.ReadAsStringAsync();
+                return BadRequest($"No se pudo enviar el correo a la dirección: {datos.correoDestino}. Código de estado: {response.StatusCode}. Error: {responseBody}");
             }
    }
 }
