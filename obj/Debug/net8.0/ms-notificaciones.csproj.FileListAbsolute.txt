@@ -35,3 +35,5 @@ C:\Users\Acer\Desktop\Adsi\Backend\ms-notificaciones\obj\Debug\net8.0\ms-notific
 C:\Users\Acer\Desktop\Adsi\Backend\ms-notificaciones\obj\Debug\net8.0\ms-notificaciones.genruntimeconfig.cache
 C:\Users\Acer\Desktop\Adsi\Backend\ms-notificaciones\obj\Debug\net8.0\ref\ms-notificaciones.dll
 C:\Users\Acer\Desktop\Adsi\Backend\ms-notificaciones\obj\Debug\net8.0\ms-notificaciones.sourcelink.json
+C:\Users\Acer\Desktop\Adsi\Backend\ms-notificaciones\bin\Debug\net8.0\DotNetEnv.dll
+C:\Users\Acer\Desktop\Adsi\Backend\ms-notificaciones\bin\Debug\net8.0\Sprache.dll
